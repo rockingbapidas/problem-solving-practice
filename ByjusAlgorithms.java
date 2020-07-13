@@ -1,9 +1,6 @@
 public class ByjusAlgorithms {
 
     public static void main(String []args) {
-        // fuzzBuzz();
-        // testArray();
-        // minimumSwap(new int[]{1,2,5,4,3});
         checkArrayOrder(new int[]{1,2,3,4,1,2,3,0,3,5});
     }
 
