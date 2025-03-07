@@ -62,6 +62,7 @@ public class SingleLinkedListWrapper implements LinkedListWrapper<SingleLinkedLi
         }
     }
 
+
     @Override
     public void deleteAtTail() {
         if (!isEmpty()) {
