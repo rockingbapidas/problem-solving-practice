@@ -5,6 +5,17 @@ import linkedlist.data.DoubleLinkedList;
 public class DoubleLinkedListWrapper implements LinkedListWrapper<DoubleLinkedList> {
     public DoubleLinkedList mNodeHead;
 
+    @Override
+    public void build(int[] arr) {
+        int N = arr.length;
+
+        while (N-- > 0) {
+            int ele = arr[N];
+            addAtHead(ele);
+        }
+
+    }
+
     /**
      * Get the value of the index-th node in the linked list. If the index is
      * invalid, return -1.
@@ -42,8 +53,23 @@ public class DoubleLinkedListWrapper implements LinkedListWrapper<DoubleLinkedLi
     }
 
     @Override
-    public void deleteAtHead() {
+    public void addAtHead(DoubleLinkedList linkedList) {
+        if (!isEmpty()) {
+            linkedList.next = mNodeHead;
 
+            mNodeHead.prev = linkedList;
+        }
+        mNodeHead = linkedList;
+    }
+
+    @Override
+    public void deleteAtHead() {
+        if (!isEmpty()) {
+            mNodeHead = mNodeHead.next;
+            mNodeHead.prev = null;
+        } else  {
+            mNodeHead = null;
+        }
     }
 
     /**
@@ -67,8 +93,33 @@ public class DoubleLinkedListWrapper implements LinkedListWrapper<DoubleLinkedLi
     }
 
     @Override
-    public void deleteAtTail() {
+    public void addAtTail(DoubleLinkedList linkedList) {
+        if (!isEmpty()) {
+            DoubleLinkedList current = mNodeHead;
+            while (current.next != null) {
+                current = current.next;
+            }
 
+            linkedList.prev = current;
+            current.next = linkedList;
+        } else {
+            mNodeHead = linkedList;
+        }
+    }
+
+    @Override
+    public void deleteAtTail() {
+        if (!isEmpty()) {
+            if (mNodeHead.next == null) {
+                mNodeHead = null;
+            } else {
+                DoubleLinkedList current = mNodeHead;
+                while (current.next.next != null) {
+                    current = current.next;
+                }
+                current.next = null;
+            }
+        }
     }
 
     /**
@@ -96,17 +147,49 @@ public class DoubleLinkedListWrapper implements LinkedListWrapper<DoubleLinkedLi
 
             int i = 0;
             DoubleLinkedList current = mNodeHead;
-            DoubleLinkedList last = mNodeHead;
+
             while (i != index) {
-                current = last;
-                last = current.next;
+                current = current.next;
                 i++;
             }
-            DoubleLinkedList newNode = new DoubleLinkedList(val, current, last);
-            current.next = newNode;
-            last.prev = newNode;
+            DoubleLinkedList newNode = new DoubleLinkedList(val, current, current.prev);
+            current.prev.next = newNode;
+            current.prev = newNode;
         } else {
             mNodeHead = new DoubleLinkedList(val);
+        }
+    }
+
+    @Override
+    public void addAtIndex(int index, DoubleLinkedList linkedList) {
+        if (!isEmpty()) {
+            int size = length();
+            if (index > size)
+                return;
+
+            if (index == size) {
+                addAtTail(linkedList);
+                return;
+            }
+
+            if (index == 0) {
+                addAtHead(linkedList);
+                return;
+            }
+
+            int i = 0;
+            DoubleLinkedList current = mNodeHead;
+
+            while (i != index) {
+                current = current.next;
+                i++;
+            }
+            linkedList.next = current;
+            linkedList.prev = current.prev;
+            current.prev.next = linkedList;
+            current.prev = linkedList;
+        } else {
+            mNodeHead = linkedList;
         }
     }
 

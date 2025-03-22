@@ -3,17 +3,19 @@ package linkedlist;
 import linkedlist.data.SingleLinkedList;
 
 public class CheckIfPalindrome {
+
+    /**
+     * Check if a linked list is a palindrome.
+     *
+     * @param head The head of the linked list.
+     * @return True if the linked list is a palindrome, false otherwise.
+     */
     public boolean isPalindrome(SingleLinkedList head) {
         SingleLinkedList current = head;
-        int size = 0;
-        while (current != null) {
-            size++;
-            current = current.next;
-        }
+        int size = current.length();
 
         // find the middle node
         int count = 1;
-        current = head;
         while (count < size / 2 && current != null) {
             count++;
             current = current.next;

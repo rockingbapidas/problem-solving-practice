@@ -2,7 +2,15 @@ package linkedlist;
 
 import linkedlist.data.SingleLinkedList;
 
-public class MergeTwoList {
+public class MergeTwoSortedList {
+
+    /**
+     * Merge two sorted linked lists and return it as a new sorted list.
+     * The new list should be made by splicing together the nodes of the first two lists.
+     * @param l1 SingleLinkedList
+     * @param l2 SingleLinkedList
+     * @return SingleLinkedList
+     */
     public SingleLinkedList merge(SingleLinkedList l1, SingleLinkedList l2) {
         if (l1 == null && l2 == null)
             return null;

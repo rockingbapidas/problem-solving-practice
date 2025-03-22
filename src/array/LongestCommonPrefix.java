@@ -13,12 +13,12 @@ Output: "fl"
 Explanation: There is no common prefix amongst the input strings.
  */
 public class LongestCommonPrefix {
-    public String solution(String @NotNull [] strs) {
+    public String solution(String[] strs) {
         return bruteForce(strs);
     }
 
     //Brute Force Solution
-    private String bruteForce(String @NotNull [] strs) {
+    private String bruteForce(String[] strs) {
         if (strs.length == 0) return "";
         if (strs.length == 1) return strs[0];
         for (int i = 0; i < strs[0].length(); i++) {
@@ -32,7 +32,7 @@ public class LongestCommonPrefix {
     }
 
     //Efficient Solution
-    private String optimize(String @NotNull [] strs) {
+    private String optimize(String[] strs) {
         if (strs.length == 0) return "";
         String prefix = strs[0];
         for (String str : strs) {

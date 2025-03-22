@@ -2,7 +2,14 @@ package linkedlist;
 
 import linkedlist.data.SingleLinkedList;
 
-public class ReverseList {
+public class ReverseSingleLinkedList {
+
+    /**
+     * Reverse a singly linked list.
+     *
+     * @param head The head of the linked list.
+     * @return The head of the reversed linked list.
+     */
     public SingleLinkedList iteration(SingleLinkedList head) {
         SingleLinkedList previous = null;
         SingleLinkedList current = head;
@@ -15,6 +22,12 @@ public class ReverseList {
         return previous;
     }
 
+    /**
+     * Reverse a singly linked list.
+     *
+     * @param head The head of the linked list.
+     * @return The head of the reversed linked list.
+     */
     public SingleLinkedList recursion(SingleLinkedList head) {
         if (head == null || head.next == null)
             return head;

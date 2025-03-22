@@ -1,15 +1,15 @@
 package linkedlist.data;
 
-public class SingleLinkedList {
-    public int data;
-    public SingleLinkedList next;
+public class SingleLinkedListWithKeyValue {
+    public KeyValue data;
+    public SingleLinkedListWithKeyValue next;
 
-    public SingleLinkedList(int nodeData) {
+    public SingleLinkedListWithKeyValue(KeyValue nodeData) {
         this.data = nodeData;
         this.next = null;
     }
 
-    public SingleLinkedList(int nodeData, SingleLinkedList next) {
+    public SingleLinkedListWithKeyValue(KeyValue nodeData, SingleLinkedListWithKeyValue next) {
         this.data = nodeData;
         this.next = next;
     }
@@ -23,7 +23,7 @@ public class SingleLinkedList {
     }
 
     public void print() {
-        SingleLinkedList start = this;
+        SingleLinkedListWithKeyValue start = this;
         while (start != null) {
             if (start.next != null) {
                 System.out.println("[Value " + start.data + " " + "Next " + start.next.data + "]");
@@ -36,7 +36,7 @@ public class SingleLinkedList {
 
     public int length() {
         int i = 0;
-        SingleLinkedList current = this;
+        SingleLinkedListWithKeyValue current = this;
         while (current != null) {
             current = current.next;
             i++;

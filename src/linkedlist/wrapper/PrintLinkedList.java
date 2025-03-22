@@ -1,4 +1,4 @@
-package linkedlist;
+package linkedlist.wrapper;
 
 import linkedlist.data.DoubleLinkedList;
 import linkedlist.data.DoubleLinkedListWithChild;

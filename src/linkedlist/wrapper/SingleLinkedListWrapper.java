@@ -5,6 +5,16 @@ import linkedlist.data.SingleLinkedList;
 public class SingleLinkedListWrapper implements LinkedListWrapper<SingleLinkedList> {
     public SingleLinkedList mNodeHead;
 
+    @Override
+    public void build(int[] arr) {
+        int N = arr.length;
+
+        while (N-- > 0) {
+            int ele = arr[N];
+            addAtHead(ele);
+        }
+    }
+
     /**
      * Get the value of the index-th node in the linked list. If the index is
      * invalid, return -1.
@@ -39,8 +49,22 @@ public class SingleLinkedListWrapper implements LinkedListWrapper<SingleLinkedLi
     }
 
     @Override
-    public void deleteAtHead() {
+    public void addAtHead(SingleLinkedList linkedList) {
+        if (!isEmpty()) {
+            linkedList.next = mNodeHead;
+            mNodeHead = linkedList;
+        } else {
+            mNodeHead = linkedList;
+        }
+    }
 
+    @Override
+    public void deleteAtHead() {
+        if(!isEmpty()) {
+            mNodeHead = mNodeHead.next;
+        } else {
+            mNodeHead = null;
+        }
     }
 
     /**
@@ -62,17 +86,32 @@ public class SingleLinkedListWrapper implements LinkedListWrapper<SingleLinkedLi
         }
     }
 
-
     @Override
-    public void deleteAtTail() {
+    public void addAtTail(SingleLinkedList linkedList) {
         if (!isEmpty()) {
             SingleLinkedList current = mNodeHead;
             while (current.next != null) {
                 current = current.next;
             }
 
-            current = null;
-            mNodeHead = current;
+            current.next = linkedList;
+        } else {
+            mNodeHead = linkedList;
+        }
+    }
+
+    @Override
+    public void deleteAtTail() {
+        if (!isEmpty()) {
+            if (mNodeHead.next == null) {
+                mNodeHead = null;
+            } else {
+                SingleLinkedList current = mNodeHead;
+                while (current.next.next != null) {
+                    current = current.next;
+                }
+                current.next = null;
+            }
         }
     }
 
@@ -100,15 +139,47 @@ public class SingleLinkedListWrapper implements LinkedListWrapper<SingleLinkedLi
 
             int i = 0;
             SingleLinkedList current = mNodeHead;
-            SingleLinkedList last = mNodeHead;
+            SingleLinkedList next = mNodeHead;
             while (i != index) {
-                current = last;
-                last = current.next;
+                current = next;
+                next = current.next;
                 i++;
             }
-            current.next = new SingleLinkedList(val, last);
+            current.next = new SingleLinkedList(val, next);
         } else {
             mNodeHead = new SingleLinkedList(val);
+        }
+    }
+
+    @Override
+    public void addAtIndex(int index, SingleLinkedList linkedList) {
+        if (!isEmpty()) {
+            int size = length();
+            if (index > size)
+                return;
+
+            if (index == size) {
+                addAtTail(linkedList);
+                return;
+            }
+
+            if (index == 0) {
+                addAtHead(linkedList);
+                return;
+            }
+
+            int i = 0;
+            SingleLinkedList current = mNodeHead;
+            SingleLinkedList next = mNodeHead;
+            while (i != index) {
+                current = next;
+                next = current.next;
+                i++;
+            }
+            linkedList.next = next;
+            current.next = linkedList;
+        } else {
+            mNodeHead = linkedList;
         }
     }
 

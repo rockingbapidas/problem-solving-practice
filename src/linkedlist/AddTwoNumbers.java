@@ -3,6 +3,7 @@ package linkedlist;
 import linkedlist.data.SingleLinkedList;
 
 public class AddTwoNumbers {
+
     public SingleLinkedList add(SingleLinkedList l1, SingleLinkedList l2) {
         SingleLinkedList dummy = new SingleLinkedList(0);
         SingleLinkedList current = dummy;

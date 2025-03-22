@@ -1,9 +1,8 @@
-package linkedlist;
+package linkedlist.wrapper;
 
 import linkedlist.data.SingleLinkedList;
-import linkedlist.wrapper.SingleLinkedListWrapper;
 
-public class LinkedList {
+public class CircularLinkedList {
     public void build(int[] arr) {
         SingleLinkedListWrapper singleLinkedListWrapper = new SingleLinkedListWrapper();
 

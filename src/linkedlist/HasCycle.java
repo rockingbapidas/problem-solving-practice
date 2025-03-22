@@ -3,6 +3,13 @@ package linkedlist;
 import linkedlist.data.SingleLinkedList;
 
 public class HasCycle {
+    /**
+     * Given a linked list, determine if it has a cycle in it.
+     * To represent a cycle in the given linked list, we use an integer pos which represents the position (0-indexed) in the linked list where the tail connects to.
+     * If pos is -1, then there is no cycle in the linked list.
+     * @param head SingleLinkedList
+     * @return boolean
+     */
     public boolean hasCycle(SingleLinkedList head) {
         if (head == null || head.next == null)
             return false;
@@ -18,35 +25,5 @@ public class HasCycle {
             fastPointer = fastPointer.next.next;
         }
         return true;
-    }
-
-    public SingleLinkedList detect(SingleLinkedList head) {
-        if (head == null || head.next == null)
-            return null;
-
-        SingleLinkedList slowPointer = head.next;
-        SingleLinkedList fastPointer = head.next.next;
-
-        while (slowPointer != fastPointer) {
-            if (slowPointer == null || fastPointer == null)
-                return null;
-
-            slowPointer = slowPointer.next;
-            fastPointer = fastPointer.next;
-
-            if (fastPointer != null) {
-                fastPointer = fastPointer.next;
-            } else {
-                return null;
-            }
-        }
-
-        fastPointer = head;
-        while (slowPointer != fastPointer) {
-            slowPointer = slowPointer.next;
-            fastPointer = fastPointer.next;
-        }
-
-        return slowPointer;
     }
 }

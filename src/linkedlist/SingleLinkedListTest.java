@@ -1,15 +1,15 @@
 package linkedlist;
 
-import linkedlist.wrapper.DoubleLinkedListWrapper;
+import linkedlist.wrapper.SingleLinkedListWrapper;
 import org.junit.jupiter.api.Test;
 
-class DoublyLinkedListTest {
+class SingleLinkedListTest {
 
     @Test
-    void test_double_linked_list() {
-        DoubleLinkedListWrapper linkedList = new DoubleLinkedListWrapper();
+    void test_single_linked_list() {
+        SingleLinkedListWrapper linkedList = new SingleLinkedListWrapper();
 
-        linkedList.build(new int[]{1, 2, 3, 4, 5, 6});
+        linkedList.build(new int[]{1,2,3,4,5,6});
 
         linkedList.mNodeHead.print();
 

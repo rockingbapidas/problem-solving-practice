@@ -3,6 +3,12 @@ package linkedlist;
 import linkedlist.data.SingleLinkedList;
 
 public class FindIntersectionNode {
+    /**
+     * Find the intersection node of two linked lists
+     * @param headA head of the first linked list
+     * @param headB head of the second linked list
+     * @return the intersection node
+     */
     public SingleLinkedList getNode(SingleLinkedList headA, SingleLinkedList headB) {
         if (headA == null || headB == null)
             return null;
@@ -10,21 +16,8 @@ public class FindIntersectionNode {
         SingleLinkedList firstNode = headA;
         SingleLinkedList secondNode = headB;
 
-        int firstListLength = 0;
-        int secondListLength = 0;
-
-        while (firstNode != null) {
-            firstListLength++;
-            firstNode = firstNode.next;
-        }
-
-        while (secondNode != null) {
-            secondListLength++;
-            secondNode = secondNode.next;
-        }
-
-        firstNode = headA;
-        secondNode = headB;
+        int firstListLength = firstNode.length();
+        int secondListLength = secondNode.length();
 
         if (firstListLength > secondListLength) {
             int diff = firstListLength - secondListLength;
@@ -42,6 +35,7 @@ public class FindIntersectionNode {
             firstNode = firstNode.next;
             secondNode = secondNode.next;
         }
+
         return firstNode;
     }
 }
