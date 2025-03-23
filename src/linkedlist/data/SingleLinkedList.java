@@ -34,6 +34,18 @@ public class SingleLinkedList {
         }
     }
 
+    public int[] toArray() {
+        int[] array = new int[length()];
+        SingleLinkedList current = this;
+        int i = 0;
+        while (current != null) {
+            array[i] = current.data;
+            current = current.next;
+            i++;
+        }
+        return array;
+    }
+
     public int length() {
         int i = 0;
         SingleLinkedList current = this;

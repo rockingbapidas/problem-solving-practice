@@ -6,14 +6,22 @@ public class DoubleLinkedListWrapper implements LinkedListWrapper<DoubleLinkedLi
     public DoubleLinkedList mNodeHead;
 
     @Override
-    public void build(int[] arr) {
+    public DoubleLinkedList build(int[] arr) {
         int N = arr.length;
+
+        DoubleLinkedList head = new DoubleLinkedList(arr[--N]);
 
         while (N-- > 0) {
             int ele = arr[N];
-            addAtHead(ele);
+            DoubleLinkedList newNode = new DoubleLinkedList(ele);
+            newNode.next = head;
+
+            head.prev = newNode;
+            head = newNode;
         }
 
+        mNodeHead = head;
+        return mNodeHead;
     }
 
     /**

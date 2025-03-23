@@ -6,13 +6,17 @@ public class SingleLinkedListWrapper implements LinkedListWrapper<SingleLinkedLi
     public SingleLinkedList mNodeHead;
 
     @Override
-    public void build(int[] arr) {
+    public SingleLinkedList build(int[] arr) {
         int N = arr.length;
 
+        SingleLinkedList head = new SingleLinkedList(arr[--N]);
         while (N-- > 0) {
             int ele = arr[N];
-            addAtHead(ele);
+            SingleLinkedList next = head;
+            head = new SingleLinkedList(ele, next);
         }
+        mNodeHead = head;
+        return mNodeHead;
     }
 
     /**

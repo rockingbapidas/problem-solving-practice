@@ -1,7 +1,5 @@
 package array;
 
-import org.jetbrains.annotations.NotNull;
-
 /*
 Write a function to find the longest common prefix string amongst an array of strings.
 If there is no common prefix, return an empty string "".

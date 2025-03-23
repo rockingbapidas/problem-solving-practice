@@ -1,7 +1,7 @@
 package linkedlist.wrapper;
 
 public interface LinkedListWrapper<T> {
-    void build(int[] arr);
+    T build(int[] arr);
 
     T get(int index);
 

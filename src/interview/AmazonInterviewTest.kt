@@ -3,7 +3,6 @@ package interview
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 
-
 internal class AmazonInterviewTest {
     private var subject: AmazonInterview? = null
 

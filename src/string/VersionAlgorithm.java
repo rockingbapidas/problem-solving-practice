@@ -1,7 +1,5 @@
 package string;
 
-import org.jetbrains.annotations.NotNull;
-
 /*
 A version number is a string that is used to identify the unique state of a software product.
 A version number looks like a.b.c.d, where a, b, etc are numbers, so the version number is a string in
@@ -29,7 +27,7 @@ public class VersionAlgorithm {
 
     // Method to compare two versions.
     // Returns 1 if v2 is smaller, -1 if v1 is smaller, 0 if equal
-    public int versionCompare(@NotNull String v1, String v2) {
+    public int versionCompare(String v1, String v2) {
         // vNum stores each numeric part of version
         int vNum1 = 0, vNum2 = 0;
 

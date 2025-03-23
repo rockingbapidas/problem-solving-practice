@@ -48,6 +48,18 @@ public class DoubleLinkedList {
         }
     }
 
+    public int[] toArray() {
+        int[] array = new int[length()];
+        DoubleLinkedList current = this;
+        int i = 0;
+        while (current != null) {
+            array[i] = current.data;
+            current = current.next;
+            i++;
+        }
+        return array;
+    }
+
     public int length() {
         int i = 0;
         DoubleLinkedList current = this;
