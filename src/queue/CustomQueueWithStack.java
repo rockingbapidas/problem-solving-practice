@@ -1,10 +1,12 @@
+package queue;
+
 import java.util.Stack;
 
-public class MyCustomQueue {
+public class CustomQueueWithStack {
     private final Stack<Integer> mStackOne;
     private final Stack<Integer> mStackTwo;
 
-    public MyCustomQueue() {
+    public CustomQueueWithStack() {
         mStackOne = new Stack<>();
         mStackTwo = new Stack<>();
     }
@@ -13,18 +15,11 @@ public class MyCustomQueue {
         mStackOne.push(element);
     }
 
-    public void dequeue() {
+    public int dequeue() {
         if (mStackTwo.isEmpty()) {
             changeQueues(mStackOne, mStackTwo);
         }
-        mStackTwo.pop();
-    }
-
-    public void printElementAtFront() {
-        if (mStackTwo.isEmpty()) {
-            changeQueues(mStackOne, mStackTwo);
-        }
-        System.out.println(mStackTwo.peek());
+        return mStackTwo.pop();
     }
 
     public int getElementAtFront() {
@@ -32,6 +27,10 @@ public class MyCustomQueue {
             changeQueues(mStackOne, mStackTwo);
         }
         return mStackTwo.peek();
+    }
+
+    public boolean empty() {
+        return mStackOne.isEmpty() && mStackTwo.isEmpty();
     }
 
     private void changeQueues(Stack<Integer> origin, Stack<Integer> destin) {

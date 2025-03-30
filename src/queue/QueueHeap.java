@@ -1,3 +1,5 @@
+package queue;
+
 import java.util.PriorityQueue;
 
 public class QueueHeap {

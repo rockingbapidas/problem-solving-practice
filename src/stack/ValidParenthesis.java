@@ -33,7 +33,7 @@ public class ValidParenthesis {
         for (int i = 0; i < s.length(); i++) {
             String bracket = String.valueOf(s.charAt(i));
 
-            if (bracket.equals("(") ||bracket.equals("[") || bracket.equals("{")) {
+            if (bracket.equals("(") || bracket.equals("[") || bracket.equals("{")) {
                 stack.push(bracket);
             } else {
                 String open = stack.isEmpty() ? "" : stack.peek();

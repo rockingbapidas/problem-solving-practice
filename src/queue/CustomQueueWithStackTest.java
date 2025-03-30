@@ -1,3 +1,5 @@
+package queue;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -7,12 +9,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-class MyCustomQueueTest {
-    private MyCustomQueue myCustomQueue;
+class CustomQueueWithStackTest {
+    private CustomQueueWithStack myCustomQueue;
 
     @BeforeEach
     void setUp() {
-        myCustomQueue = new MyCustomQueue();
+        myCustomQueue = new CustomQueueWithStack();
     }
 
     @AfterEach
@@ -39,5 +41,14 @@ class MyCustomQueueTest {
         List<Integer> expected = new ArrayList<>(Arrays.asList(14,14));
 
         Assertions.assertEquals(expected.toString(), actual.toString());
+    }
+
+    @Test
+    void test_queue_with_stack() {
+        myCustomQueue.addToQueue(1); // queue is: [1]
+        myCustomQueue.addToQueue(2); // queue is: [1, 2] (leftmost is front of the queue)
+        Assertions.assertEquals(1, myCustomQueue.getElementAtFront()); // return 1
+        Assertions.assertEquals(1, myCustomQueue.dequeue()); // return 1, queue is [2]
+        Assertions.assertEquals(false, myCustomQueue.empty()); // return false
     }
 }

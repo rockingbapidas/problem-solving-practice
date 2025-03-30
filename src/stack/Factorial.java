@@ -1,6 +1,6 @@
-package oops;
+package stack;
 
-public class Recursion {
+public class Factorial {
     public int factorial(int n) {
         if (n == 0)
             return 1;
