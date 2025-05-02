@@ -1,3 +1,5 @@
+package practice;
+
 import java.util.List;
 
 public class VeryBigSum {

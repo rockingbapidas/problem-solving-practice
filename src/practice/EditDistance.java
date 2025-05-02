@@ -1,3 +1,5 @@
+package practice;
+
 /*
 Write a function that returns whether two words are exactly "one edit" away using the following signature:
 bool OneEditApart(string s1, string s2);

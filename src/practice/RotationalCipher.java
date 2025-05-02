@@ -1,3 +1,5 @@
+package practice;
+
 public class RotationalCipher {
     public String rotationalCipher(String input, int rotationFactor) {
         char[] arr = input.toCharArray();
